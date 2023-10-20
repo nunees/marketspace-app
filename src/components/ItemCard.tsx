@@ -1,8 +1,8 @@
-import { VStack, Text, Image, HStack, Avatar, Badge } from "native-base";
+import { VStack, Text, Image, HStack, Avatar, Badge, Box } from "native-base";
 
 export function ItemCard() {
   return (
-    <VStack w={160} h={150} mb={3}>
+    <VStack w={154} h={143} mb={5}>
       <HStack>
         <HStack>
           <Image

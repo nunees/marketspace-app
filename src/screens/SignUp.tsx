@@ -1,6 +1,6 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Avatar, Center, Text, Pressable } from "native-base";
-import { PencilSimpleLine } from "phosphor-react-native";
+import { Avatar, Center, Text, Pressable, Icon } from "native-base";
+import { Eye, PencilSimpleLine } from "phosphor-react-native";
 
 import LogoSVG from "@assets/logo.svg";
 import AvatarSVG from "@assets/avatar.svg";
@@ -51,9 +51,25 @@ export function SignUp() {
 
         <Input placeholder={"Telefone"} />
 
-        <Input placeholder={"Senha"} isPasswordField />
+        <Input
+          placeholder={"Senha"}
+          secureTextEntry
+          InputRightElement={
+            <Pressable>
+              <Icon as={<Eye />} size={20} color={"gray.400"} mr={2} />
+            </Pressable>
+          }
+        />
 
-        <Input placeholder={"Confirmar senha"} isPasswordField />
+        <Input
+          placeholder={"Confirmar senha"}
+          secureTextEntry
+          InputRightElement={
+            <Pressable>
+              <Icon as={<Eye />} size={20} color={"gray.400"} mr={2} />
+            </Pressable>
+          }
+        />
 
         <Button variant={"black"} text={"Criar"} />
       </Center>

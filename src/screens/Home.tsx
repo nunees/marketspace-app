@@ -1,13 +1,43 @@
 import { Button } from "@components/Button";
+import { Filter } from "@components/Filter";
 import { Input } from "@components/Input";
 import { ItemCard } from "@components/ItemCard";
-import { HStack, ScrollView, Text, VStack, Avatar, Badge } from "native-base";
-import { Tag, ArrowRight, Plus } from "phosphor-react-native";
+
+import {
+  HStack,
+  ScrollView,
+  Text,
+  VStack,
+  Avatar,
+  Badge,
+  Pressable,
+  Divider,
+  Icon,
+} from "native-base";
+import {
+  Tag,
+  ArrowRight,
+  Plus,
+  MagnifyingGlass,
+  Sliders,
+} from "phosphor-react-native";
+import { SetStateAction, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export function Home() {
+  const [showFilter, setShowFilter] = useState<boolean>(false);
+
+  console.log("Home render");
+
   return (
     <SafeAreaView>
+      {showFilter && (
+        <Filter
+          onClose={() => setShowFilter(!showFilter)}
+          isOpen={showFilter}
+        />
+      )}
+
       <ScrollView mt={5}>
         <VStack px={5}>
           <HStack justifyContent={"space-between"}>
@@ -20,7 +50,7 @@ export function Home() {
                 h={45}
               />
             </VStack>
-            <VStack mr={10}>
+            <VStack mr={5}>
               <Text fontSize={"md"}>Boas vindas,</Text>
               <Text fontSize={"md"} bold>
                 Maria!
@@ -67,7 +97,7 @@ export function Home() {
                 </VStack>
               </HStack>
 
-              <HStack ml={10}>
+              <HStack ml={5}>
                 <Text color="blue.900" bold>
                   Meus anúncios
                 </Text>
@@ -92,27 +122,46 @@ export function Home() {
               placeholder="Buscar anúncio"
               w={"full"}
               h={45}
-              isSearchField
+              InputRightElement={
+                <HStack mr={5}>
+                  <Pressable>
+                    <Icon
+                      as={<MagnifyingGlass />}
+                      size={20}
+                      color={"gray.200"}
+                    />
+                  </Pressable>
+                  <Divider
+                    borderColor={"gray.500"}
+                    borderWidth={1}
+                    orientation="vertical"
+                    h={5}
+                    mx={2}
+                  />
+                  <Pressable onPress={() => setShowFilter(!showFilter)}>
+                    <Icon as={<Sliders />} size={20} color={"gray.200"} />
+                  </Pressable>
+                </HStack>
+              }
             />
           </HStack>
         </VStack>
 
-        <VStack mt={3} px={10}>
-          <VStack w={330}>
-            <HStack flexWrap={"wrap"} justifyContent={"space-between"}>
-              <ItemCard />
-
-              <ItemCard />
-
-              <ItemCard />
-
-              <ItemCard />
-
-              <ItemCard />
-
-              <ItemCard />
-            </HStack>
-          </VStack>
+        <VStack mt={3} px={5}>
+          <HStack justifyContent={"space-evenly"} flexWrap={"wrap"}>
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+          </HStack>
         </VStack>
       </ScrollView>
     </SafeAreaView>

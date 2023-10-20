@@ -1,9 +1,19 @@
-import { VStack, Text, Center, Heading, Box, Flex } from "native-base";
+import {
+  VStack,
+  Text,
+  Center,
+  Heading,
+  Box,
+  Flex,
+  Pressable,
+  Icon,
+} from "native-base";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import LogoSVG from "@assets/logo.svg";
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
+import { Eye } from "phosphor-react-native";
 
 export function SignIn() {
   return (
@@ -22,8 +32,23 @@ export function SignIn() {
             <Text pb={5} fontSize={"sm"} color="gray.100">
               Acesse sua conta
             </Text>
-            <Input placeholder="E-mail" />
-            <Input placeholder="Senha" isPasswordField />
+            <Input
+              placeholder="E-mail"
+              InputRightElement={
+                <Pressable>
+                  <Icon as={<Eye />} size={20} color={"gray.400"} mr={2} />
+                </Pressable>
+              }
+            />
+            <Input
+              placeholder="Senha"
+              isPasswordField
+              InputRightElement={
+                <Pressable>
+                  <Icon as={<Eye />} size={20} color={"gray.400"} mr={2} />
+                </Pressable>
+              }
+            />
 
             <Button variant={"blue"} text={"Entrar"} />
           </Center>
