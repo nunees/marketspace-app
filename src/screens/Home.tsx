@@ -1,8 +1,10 @@
-import { Button } from "@components/Button";
-import { Filter } from "@components/Filter";
-import { Input } from "@components/Input";
-import { ItemCard } from "@components/ItemCard";
-
+import {
+  Tag,
+  ArrowRight,
+  Plus,
+  MagnifyingGlass,
+  Sliders,
+} from "phosphor-react-native";
 import {
   HStack,
   ScrollView,
@@ -13,32 +15,32 @@ import {
   Pressable,
   Divider,
   Icon,
+  Actionsheet,
 } from "native-base";
-import {
-  Tag,
-  ArrowRight,
-  Plus,
-  MagnifyingGlass,
-  Sliders,
-} from "phosphor-react-native";
-import { SetStateAction, useState } from "react";
+import { Button } from "@components/Button";
+import { Filter } from "@components/Filter";
+import { Input } from "@components/Input";
+import { ItemCard } from "@components/ItemCard";
+
+import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { X } from "phosphor-react-native";
 
 export function Home() {
   const [showFilter, setShowFilter] = useState<boolean>(false);
 
-  console.log("Home render");
-
   return (
     <SafeAreaView>
-      {showFilter && (
-        <Filter
-          onClose={() => setShowFilter(!showFilter)}
-          isOpen={showFilter}
-        />
-      )}
-
       <ScrollView mt={5}>
+        {showFilter && (
+          <Filter
+            isOpen={showFilter}
+            onClose={() => setShowFilter(!showFilter)}
+            size={"full"}
+            useRNModal={true}
+          />
+        )}
+
         <VStack px={5}>
           <HStack justifyContent={"space-between"}>
             <VStack>
