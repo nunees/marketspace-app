@@ -4,7 +4,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import LogoSVG from "@assets/logo.svg";
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
-import { Eye } from "phosphor-react-native";
 
 export function SignIn() {
   return (
@@ -24,7 +23,7 @@ export function SignIn() {
               Acesse sua conta
             </Text>
             <Input placeholder="E-mail" />
-            <Input placeholder="Senha" />
+            <Input placeholder="Senha" isPasswordField />
 
             <Button variant={"blue"} text={"Entrar"} />
           </Center>
@@ -37,8 +36,8 @@ export function SignIn() {
             Ainda nao tem acesso?
           </Text>
           <Button
-            variant={"black"}
-            text={"Cadastre-se"}
+            variant={"gray"}
+            text={"Criar uma conta"}
             onPress={() => console.log("clicou")}
           />
         </Center>

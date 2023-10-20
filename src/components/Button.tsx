@@ -15,7 +15,9 @@ export function Button({ onPress, text, variant, icon, ...rest }: Props) {
           ? "black"
           : variant === "blue"
           ? "blue.500"
-          : "gray.600"
+          : variant === "gray"
+          ? "gray.500"
+          : "red.500"
       }
       borderRadius={5}
       w={279}
@@ -33,6 +35,7 @@ export function Button({ onPress, text, variant, icon, ...rest }: Props) {
             ? "gray.700"
             : "gray.200"
         }
+        fontSize={"sm"}
       >
         {text}
       </Text>

@@ -6,8 +6,10 @@ import {
   useFonts,
 } from "@expo-google-fonts/karla";
 import { Loading } from "@components/Loading";
-import { SignIn } from "@screens/SignIn";
+
 import { THEME } from "./src/theme";
+import { SignUp } from "@screens/SignUp";
+import { Routes } from "@routes/index";
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Karla_400Regular, Karla_700Bold });
@@ -15,7 +17,7 @@ export default function App() {
   return (
     <NativeBaseProvider theme={THEME} isSSR={false}>
       <StatusBar style="auto" />
-      {fontsLoaded ? <SignIn /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </NativeBaseProvider>
   );
 }
